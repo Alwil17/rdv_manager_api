@@ -1,15 +1,18 @@
 server:
-  port: 8383
+  port: ${SERVER_PORT:8080}
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://bvrjnhl:IxSi1MduzkPqvvhx@cluster0.erw7h.mongodb.net/rdv_manager_db?retryWrites=true&w=majority&appName=Cluster0
+      uri: ${SPRING_MONGO_URL}
+      username: ${SPRING_MONGO_USERNAME}
+      password: ${SPRING_MONGO_PASSWORD}
       database: rdv_manager_db
-  profiles:
-    active: debug
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 5
   servlet:
     multipart:
       enabled: true
@@ -21,4 +24,4 @@ logging:
   level:
     root: INFO
     org.springframework.web: DEBUG
-    com.grey.sytsas: DEBUG
+    com.grey.rdv_manager_api: DEBUG
