@@ -1,6 +1,5 @@
 package com.grey.rdv_manager_api.service.impl;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,11 +15,15 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
 public class ReminderServiceImpl implements ReminderService {
 
     private final ReminderRepository repository;
     private final ReminderMapper mapper;
+
+    public ReminderServiceImpl(ReminderRepository repository, ReminderMapper mapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+    }
 
     @Override
     @Transactional

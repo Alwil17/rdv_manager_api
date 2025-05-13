@@ -1,6 +1,5 @@
 package com.grey.rdv_manager_api.controller;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,10 +11,13 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/audit-logs")
-@RequiredArgsConstructor
 public class AuditLogController {
 
     private final AuditLogService auditLogService;
+
+    public AuditLogController(AuditLogService auditLogService) {
+        this.auditLogService = auditLogService;
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<AuditLogResponse> getAuditLog(@PathVariable UUID id) {

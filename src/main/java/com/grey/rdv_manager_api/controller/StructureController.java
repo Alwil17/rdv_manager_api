@@ -1,6 +1,5 @@
 package com.grey.rdv_manager_api.controller;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -16,10 +15,13 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/structures")
-@RequiredArgsConstructor
 public class StructureController {
 
     private final StructureService structureService;
+
+    public StructureController(StructureService structureService) {
+        this.structureService = structureService;
+    }
 
     @PostMapping
     public ResponseEntity<StructureResponse> createStructure(

@@ -1,6 +1,5 @@
 package com.grey.rdv_manager_api.controller;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -16,10 +15,13 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/slots")
-@RequiredArgsConstructor
 public class SlotController {
 
     private final SlotService slotService;
+
+    public SlotController(SlotService slotService) {
+        this.slotService = slotService;
+    }
 
     @PostMapping
     public ResponseEntity<SlotResponse> createSlot(

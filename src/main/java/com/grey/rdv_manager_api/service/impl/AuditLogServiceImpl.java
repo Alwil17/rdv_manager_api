@@ -1,6 +1,5 @@
 package com.grey.rdv_manager_api.service.impl;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import com.grey.rdv_manager_api.domain.model.AuditLog;
@@ -13,11 +12,15 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
 public class AuditLogServiceImpl implements AuditLogService {
 
     private final AuditLogRepository repository;
     private final AuditLogMapper mapper;
+
+    public AuditLogServiceImpl(AuditLogRepository repository, AuditLogMapper mapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+    }
 
     @Override
     public AuditLogResponse getById(UUID id) {
