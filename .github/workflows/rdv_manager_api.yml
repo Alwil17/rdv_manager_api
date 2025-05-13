@@ -41,7 +41,7 @@ jobs:
     name: Docker Build & Push
     needs: build-and-test
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/devmain'
+    if: github.ref == 'refs/heads/dev'
 
     steps:
       - name: Checkout code
