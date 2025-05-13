@@ -1,6 +1,5 @@
 package com.grey.rdv_manager_api.controller;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -16,10 +15,13 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/reminders")
-@RequiredArgsConstructor
 public class ReminderController {
 
     private final ReminderService reminderService;
+
+    public ReminderController(ReminderService reminderService) {
+        this.reminderService = reminderService;
+    }
 
     @PostMapping
     public ResponseEntity<ReminderResponse> createReminder(
