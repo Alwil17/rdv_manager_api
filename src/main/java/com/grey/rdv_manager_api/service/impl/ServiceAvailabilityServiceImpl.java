@@ -1,6 +1,5 @@
 package com.grey.rdv_manager_api.service.impl;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,12 +15,16 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
 public class ServiceAvailabilityServiceImpl implements ServiceAvailabilityService {
 
     private final ServiceAvailabilityRepository repository;
     private final ServiceAvailabilityMapper mapper;
 
+    public ServiceAvailabilityServiceImpl(ServiceAvailabilityRepository repository, ServiceAvailabilityMapper mapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+    }
+    
     @Override
     @Transactional
     public ServiceAvailabilityResponse create(UUID serviceId, CreateServiceAvailabilityRequest request) {

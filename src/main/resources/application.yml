@@ -6,7 +6,7 @@ springdoc:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://bvrjnhl:IxSi1MduzkPqvvhx@cluster0.erw7h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      uri: mongodb+srv://bvrjnhl:IxSi1MduzkPqvvhx@cluster0.erw7h.mongodb.net/rdv_manager_db?retryWrites=true&w=majority&appName=Cluster0
       database: rdv_manager_db
   profiles:
     active: debug
