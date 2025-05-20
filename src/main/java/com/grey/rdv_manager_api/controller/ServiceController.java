@@ -55,4 +55,10 @@ public class ServiceController {
     public void deleteService(@PathVariable UUID id) {
         serviceService.delete(id);
     }
+
+    @GetMapping("/structure/{structureId}")
+    public ResponseEntity<List<ServiceResponse>> getServicesByStructure(@PathVariable UUID structureId) {
+        List<ServiceResponse> list = serviceService.getByStructureId(structureId);
+        return ResponseEntity.ok(list);
+    }
 }
