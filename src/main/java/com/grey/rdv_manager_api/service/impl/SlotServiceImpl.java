@@ -30,6 +30,7 @@ public class SlotServiceImpl implements SlotService {
     public SlotResponse create(CreateSlotRequest request) {
         Slot entity = mapper.toEntity(request);
         entity.setId(UUID.randomUUID());
+        entity.setAvailable(request.capacity());
         Slot saved = repository.save(entity);
         return mapper.toResponse(saved);
     }

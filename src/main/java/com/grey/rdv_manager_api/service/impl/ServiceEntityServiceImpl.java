@@ -61,4 +61,9 @@ public class ServiceEntityServiceImpl implements ServiceEntityService {
     public void delete(UUID id) {
         repository.deleteById(id);
     }
+
+    @Override
+    public List<ServiceResponse> getByStructureId(UUID structureId) {
+        return mapper.toResponseList(repository.findByStructureId(structureId));
+    }
 }
