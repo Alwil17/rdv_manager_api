@@ -13,4 +13,5 @@ public interface ServiceEntityService {
     List<ServiceResponse> getAll();
     ServiceResponse update(UUID id, UpdateServiceRequest request);
     void delete(UUID id);
+    List<ServiceResponse> getByStructureId(UUID structureId);
 }
